@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Premier Electrician - Expert Electrical Services in Surprise, AZ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* CSS Variables for easy theme changes */
+        :root {
+            --primary-blue: #0056b3; /* Main branding blue */
+            --secondary-gold: #FFD700; /* Accent gold for highlights */
+            --dark-text: #333;
+            --light-text: #f0f0f0;
+            --background-light: #f9f9f9;
+            --background-dark: #2c3e50; /* Darker background for certain sections */
+            --border-color: #e0e0e0;
+            --transition-speed: 0.3s ease;
+        }
+
+        /* Base Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-light);
+            color: var(--dark-text);
+            line-height: 1.7;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-blue);
+            line-height: 1.2;
+            margin-top: 0;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: color var(--transition-speed);
+        }
+
+        a:hover {
+            color: var(--secondary-gold);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-blue);
+            color: #fff;
+            padding: 25px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            margin: 0;
+            font-size: 2.8em;
+            color: #fff;
+            font-weight: 800;
+        }
+
+        .logo p {
+            margin: 0;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            font-size: 1.15em;
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background-color: var(--secondary-gold);
+            bottom: 0;
+            left: 0;
+            transition: width var(--transition-speed);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 600px; /* Increased height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+            overflow: hidden;
+            background: linear-gradient(rgba(0, 86, 179, 0.7), rgba(0, 86, 179, 0.7)); /* Blue overlay */
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #28a745; /* Green placeholder */
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            /* In a real site, you'd replace the green with: */
+            /* background-image: url('path/to/your/electrician-hero-image.jpg'); */
+            /* filter: brightness(0.7); /* Slightly dim the image for text readability */
+        }
+
+        .hero-content {
+            z-index: 1;
+            padding: 20px;
+        }
+
+        .hero-content h2 {
+            font-size: 4em;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #fff;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-content p {
+            font-size: 1.5em;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary-gold);
+            color: var(--primary-blue);
+            padding: 15px 35px;
+            font-size: 1.2em;
+            font-weight: 700;
+            border-radius: 50px;
+            transition: background-color var(--transition-speed), transform var(--transition-speed);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            background-color: #e6c200;
+            transform: translateY(-3px);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            font-size: 3.5em;
+            font-weight: 800;
+            margin-bottom: 60px;
+            position: relative;
+            padding-bottom: 20px;
+            color: var(--primary-blue);
+        }
+
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 6px;
+            background-color: var(--secondary-gold);
+            border-radius: 3px;
+        }
+
+        /* About Section */
+        #about p {
+            font-size: 1.15em;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            color: var(--dark-gray);
+        }
+
+        /* Services Section (Example) */
+        #services {
+            background-color: var(--background-dark);
+            color: var(--light-text);
+        }
+
+        #services .section-heading {
+            color: #fff;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-item {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-item i {
+            font-size: 3em;
+            color: var(--secondary-gold);
+            margin-bottom: 20px;
+        }
+
+        .service-item h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+        }
+
+        .service-item p {
+            color: var(--dark-text);
+            font-size: 1em;
+        }
+
+
+        /* Contact Info & Hours */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h3 {
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .contact-info p {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-gray);
+        }
+
+        .contact-info p i {
+            margin-right: 15px;
+            color: var(--secondary-gold);
+            font-size: 1.5em;
+        }
+
+        .contact-info a {
+            font-weight: bold;
+        }
+
+        .hours-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .hours-table th, .hours-table td {
+            border: 1px solid var(--border-color);
+            padding: 18px;
+            text-align: left;
+            font-size: 1.15em;
+        }
+
+        .hours-table th {
+            background-color: var(--primary-blue);
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        .hours-table tr:nth-child(even) {
+            background-color: var(--background-light);
+        }
+
+        .hours-table td:last-child {
+            font-weight: 700;
+            color: var(--dark-text);
+        }
+
+        /* Testimonials */
+        #testimonials {
+            background-color: var(--background-dark);
+            color: var(--light-text);
+        }
+
+        #testimonials .section-heading {
+            color: #fff;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-item {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            /* Removed height: 100%; to allow dynamic shrinking */
+        }
+
+        .testimonial-item p {
+            color: #1a1a1a; /* Made the main testimonial text almost black for strong contrast */
+            font-style: italic;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--primary-blue);
+            margin-top: 10px;
+            display: block;
+            font-size: 1.15em;
+            /* The small tag itself is removed, so this styling only applies to the author's name */
+        }
+
+        /* The .testimonial-author small rule is now redundant as the small tags are removed */
+        /* .testimonial-author small {
+            color: #000000;
+            font-weight: normal;
+            display: block;
+            margin-top: 5px;
+            font-size: 0.95em;
+        } */
+
+        /* FAQ Styling (integrated) */
+        #faq-section {
+            background-color: var(--background-light); /* Or white, depending on desired contrast */
+        }
+
+        .faq-item {
+            background-color: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 25px;
+            background-color: var(--primary-blue);
+            color: #fff;
+            cursor: pointer;
+            font-size: 1.3em;
+            font-weight: 700;
+            transition: background-color var(--transition-speed);
+        }
+
+        .faq-question:hover {
+            background-color: #004499;
+        }
+
+        .faq-question i {
+            margin-left: 15px;
+            transition: transform var(--transition-speed);
+        }
+
+        .faq-question.active i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.7s ease-out, padding var(--transition-speed);
+            background-color: #fff;
+            color: var(--dark-text);
+        }
+
+        .faq-answer p {
+            padding: 20px 25px;
+            margin: 0;
+            font-size: 1.1em;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .faq-answer.show {
+            max-height: 500px; /* Adjust as needed for content height */
+            padding-bottom: 20px; /* Add padding when expanded */
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-blue);
+            color: #fff;
+            text-align: center;
+            padding: 40px 0;
+            font-size: 0.95em;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content h2 {
+                font-size: 3.2em;
+            }
+            .hero-content p {
+                font-size: 1.3em;
+            }
+            .section-heading {
+                font-size: 2.8em;
+            }
+            .logo h1 {
+                font-size: 2.2em;
+            }
+            nav ul li {
+                margin-left: 20px;
+            }
+            nav ul li a {
+                font-size: 1em;
+            }
+            .faq-question {
+                font-size: 1.2em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            nav ul li {
+                margin: 0 10px 10px;
+            }
+            .hero-section {
+                height: 450px;
+            }
+            .hero-content h2 {
+                font-size: 2.5em;
+            }
+            .hero-content p {
+                font-size: 1.1em;
+            }
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 1.1em;
+            }
+            .section-heading {
+                font-size: 2.2em;
+            }
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            .card {
+                padding: 30px;
+            }
+            .contact-info p {
+                flex-direction: column;
+                text-align: center;
+            }
+            .contact-info p i {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            .hours-table th, .hours-table td {
+                font-size: 1em;
+                padding: 12px;
+            }
+            .faq-question {
+                padding: 15px 20px;
+                font-size: 1.1em;
+            }
+            .faq-answer p {
+                padding: 15px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo h1 {
+                font-size: 1.8em;
+            }
+            nav ul li {
+                margin: 0 5px 10px;
+            }
+            .hero-section {
+                height: 350px;
+            }
+            .hero-content h2 {
+                font-size: 1.8em;
+            }
+            .hero-content p {
+                font-size: 0.9em;
+            }
+            .cta-button {
+                padding: 10px 20px;
+                font-size: 1em;
+            }
+            .section-heading {
+                font-size: 1.8em;
+            }
+            .testimonial-item {
+                padding: 25px;
+            }
+            .faq-question {
+                font-size: 1em;
+                padding: 12px 15px;
+            }
+            .faq-answer p {
+                padding: 12px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Your Electrician</h1>
+                <p>Powering Your Peace of Mind</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#hours">Hours</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#faq-section">Q&A</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-background">
+                </div>
+            <div class="hero-content">
+                <h2>Expert Electrical Solutions You Can Trust</h2>
+                <p>Reliable and certified electricians serving Surprise, AZ, and surrounding communities with unmatched quality and dedication.</p>
+                <a href="#contact" class="cta-button">Get a Free Estimate Today!</a>
+            </div>
+        </section>
+
+        <section id="about" class="section-padding">
+            <div class="container">
+                <h2 class="section-heading">Your Trusted Local Electrician</h2>
+                <p>With years of experience in the field, we are the go-to professionals for all your residential and commercial electrical needs in Surprise, AZ. Our team comprises highly skilled and licensed electricians committed to delivering safe, efficient, and cost-effective solutions. We pride ourselves on our meticulous attention to detail, adherence to the highest safety standards, and unwavering dedication to customer satisfaction. From routine maintenance to complex installations, we handle every project with precision and professionalism.</p>
+            </div>
+        </section>
+
+        <section id="services" class="section-padding">
+            <div class="container">
+                <h2 class="section-heading">Our Comprehensive Services</h2>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>Lighting Installation & Repair</h3>
+                        <p>From energy-efficient LED upgrades to custom lighting design, we illuminate your spaces beautifully and safely.</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-plug"></i>
+                        <h3>Outlet & Switch Services</h3>
+                        <p>Installation, repair, and upgrade of outlets and switches to ensure reliable power access throughout your property.</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Panel Upgrades & Replacements</h3>
+                        <p>Modernizing your electrical panel for increased capacity, safety, and compliance with current electrical codes.</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-home"></i>
+                        <h3>Residential Electrical Work</h3>
+                        <p>Comprehensive electrical services for homes, including wiring, troubleshooting, and smart home integrations.</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-building"></i>
+                        <h3>Commercial Electrical Solutions</h3>
+                        <p>Reliable electrical services for businesses, ensuring minimal downtime and optimal operational efficiency.</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-fan"></i>
+                        <h3>Ceiling Fan Installation</h3>
+                        <p>Professional installation of ceiling fans to enhance comfort and air circulation in any room.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="hours" class="section-padding">
+            <div class="container">
+                <h2 class="section-heading">Business Hours & Location</h2>
+                <div class="info-grid">
+                    <div class="card contact-info" id="contact">
+                        <h3>Get in Touch!</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> 14955 W Bell Rd #7904, Surprise, AZ 85374</p>
+                        <p><i class="fas fa-phone-alt"></i> <strong>Phone:</strong> <a href="tel:+16239799751">+1 (623) 979-9751</a></p>
+                        <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:info@yourelectrician.com">info@yourelectrician.com</a></p>
+                        <p>We are ready to provide prompt and reliable service. Contact us today for a free, no-obligation estimate for your electrical project!</p>
+                    </div>
+                    <div class="card">
+                        <h3>Our Operating Hours</h3>
+                        <table class="hours-table">
+                            <thead>
+                                <tr>
+                                    <th>Day</th>
+                                    <th>Hours</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Monday</td><td>9 AM–4 PM</td></tr>
+                                <tr><td>Tuesday</td><td>9 AM–4 PM</td></tr>
+                                <tr><td>Wednesday</td><td>9 AM–4 PM</td></tr>
+                                <tr><td>Thursday</td><td>9 AM–4 PM</td></tr>
+                                <tr><td>Friday</td><td>9 AM–4 PM</td></tr>
+                                <tr><td>Saturday</td><td>7 AM–2 PM</td></tr>
+                                <tr><td>Sunday</td><td>Closed</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="section-padding">
+            <div class="container">
+                <h2 class="section-heading">What Our Valued Clients Say</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-item">
+                        <p>"Cecil and Nate were very efficient and professional with installing two ceiling fans and very helpful inputting in the PROPER lighting for our kitchen. I will be acquiring them again very soon for another project."</p>
+                        <span class="testimonial-author">Mike Connolly</span>
+                        </div>
+                    <div class="testimonial-item">
+                        <p>"Fantastic service! Work was done efficiently and the young men were helpful and cleaned up after the work was complete. Would highly recommend this company!"</p>
+                        <span class="testimonial-author">Pat Beattie</span>
+                        </div>
+                    <div class="testimonial-item">
+                        <p>"They completed the installation in a quick and professional manner and were amazing in the care they took while in our home."</p>
+                        <span class="testimonial-author">Kayui Majo</span>
+                        </div>
+                    <div class="testimonial-item">
+                        <p>"Absolutely thrilled with the service! The team was knowledgeable, polite, and resolved our complex wiring issue quickly. Highly recommend their expertise!"</p>
+                        <span class="testimonial-author">Sarah L.</span>
+                        </div>
+                    <div class="testimonial-item">
+                        <p>"Professional and punctual. They installed our new EV charger without any fuss and explained everything clearly. Fantastic experience from start to finish."</p>
+                        <span class="testimonial-author">David R.</span>
+                        </div>
+                    <div class="testimonial-item">
+                        <p>"We had an emergency power outage, and their response was incredibly fast. The electrician was very thorough and got our power back on in no time. A lifesaver!"</p>
+                        <span class="testimonial-author">Jessica T.</span>
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq-section" class="section-padding">
+            <div class="container">
+                <h2 class="section-heading">Frequently Asked Questions</h2>
+
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What types of electrical services do you offer?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We offer a comprehensive range of electrical services including residential and commercial wiring, panel upgrades, lighting installation and repair, ceiling fan installation, outlet and switch services, troubleshooting, electrical safety inspections, and much more. If it involves electricity, we can help!</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Are your electricians licensed and insured?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Absolutely. All our electricians are fully licensed, certified, and extensively trained. We are also completely insured for your protection and peace of mind. Your safety and satisfaction are our top priorities.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Do you provide free estimates?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, we do! We offer free, no-obligation estimates for most of our services. Simply contact us to schedule an appointment, and we'll assess your needs and provide a detailed quote.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How quickly can you respond to an electrical emergency?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>For electrical emergencies, we prioritize rapid response to ensure your safety and minimize disruption. Please call us directly at <a href="tel:+16239799751">+1 (623) 979-9751</a>, and we will dispatch a technician as quickly as possible.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What areas do you serve?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We proudly serve Surprise, AZ, and the surrounding communities, including Phoenix, Glendale, Peoria, Sun City, and more. If you're unsure if we cover your area, please give us a call!</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Do you handle both small and large projects?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, no job is too big or too small for our team. Whether you need a simple outlet repair or a complete home rewiring, we approach every project with the same level of dedication and professionalism.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Your Premier Electrician. All rights reserved.</p>
+            <p>Serving Surprise, AZ, and surrounding communities with pride.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const icon = question.querySelector('i');
+
+                    // Close all other open answers
+                    document.querySelectorAll('.faq-answer.show').forEach(openAnswer => {
+                        if (openAnswer !== answer) { // Don't close the one just clicked
+                            openAnswer.classList.remove('show');
+                            openAnswer.style.maxHeight = null;
+                            openAnswer.previousElementSibling.classList.remove('active');
+                        }
+                    });
+
+                    // Toggle active class on the clicked question
+                    question.classList.toggle('active');
+
+                    // Toggle visibility of the clicked answer
+                    if (answer.classList.contains('show')) {
+                        answer.classList.remove('show');
+                        answer.style.maxHeight = null; // Reset max-height
+                    } else {
+                        answer.classList.add('show');
+                        answer.style.maxHeight = answer.scrollHeight + "px"; // Set max-height to content height
+                    }
+                });
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('nav ul li a').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const hash = this.getAttribute('href');
+                    if (hash.startsWith('#')) { // Only handle internal links
+                        e.preventDefault();
+                        const target = document.querySelector(hash);
+                        if (target) {
+                            window.scrollTo({
+                                top: target.offsetTop - document.querySelector('header').offsetHeight, // Account for sticky header
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
