@@ -3,330 +3,841 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gabriel's Air Care - Premier HVAC Services in Waddell, AZ</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>J & M Repairs - Expert Electrical Services in Surprise, AZ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* CSS Variables for easy theme changes */
+        :root {
+            --primary-blue: #0056b3; /* Main branding blue */
+            --secondary-gold: #FFD700; /* Accent gold for highlights */
+            --dark-text: #333;
+            --light-text: #f0f0f0;
+            --background-light: #f9f9f9;
+            --background-dark: #2c3e50; /* Darker background for certain sections */
+            --border-color: #e0e0e0;
+            --transition-speed: 0.3s ease;
+        }
+
+        /* Base Styles */
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8f8f8;
-            color: #333;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-light);
+            color: var(--dark-text);
+            line-height: 1.7;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
         }
-        /* Custom scroll-behavior for smooth scrolling */
-        html {
-            scroll-behavior: smooth;
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 25px;
         }
-        /* Ensure the hero background image covers the whole page */
-        #home .bg-cover {
-            background-size: cover; /* Ensures the image covers the entire background area */
-            background-position: center; /* Centers the image */
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-blue);
+            line-height: 1.2;
+            margin-top: 0;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: color var(--transition-speed);
+        }
+
+        a:hover {
+            color: var(--secondary-gold);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-blue);
+            color: #fff;
+            padding: 25px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            margin: 0;
+            font-size: 2.8em;
+            color: #fff;
+            font-weight: 800;
+        }
+
+        .logo p {
+            margin: 0;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            font-size: 1.15em;
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background-color: var(--secondary-gold);
+            bottom: 0;
+            left: 0;
+            transition: width var(--transition-speed);
+        }
+
+        nav ul li a:hover::after {
             width: 100%;
-            height: 100%;
-            position: absolute; /* Ensures it stretches relative to its parent */
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 600px; /* Increased height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+            overflow: hidden;
+            background: linear-gradient(rgba(0, 86, 179, 0.7), rgba(0, 86, 179, 0.7)); /* Blue overlay */
+        }
+
+        .hero-background {
+            position: absolute;
             top: 0;
             left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('thatdude.jpeg'); /* Added hero image */
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            filter: brightness(0.7); /* Slightly dim the image for text readability */
+        }
+
+        .hero-content {
+            z-index: 1;
+            padding: 20px;
+        }
+
+        .hero-content h2 {
+            font-size: 4em;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #fff;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-content p {
+            font-size: 1.5em;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary-gold);
+            color: var(--primary-blue);
+            padding: 15px 35px;
+            font-size: 1.2em;
+            font-weight: 700;
+            border-radius: 50px;
+            transition: background-color var(--transition-speed), transform var(--transition-speed);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            background-color: #e6c200;
+            transform: translateY(-3px);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            font-size: 3.5em;
+            font-weight: 800;
+            margin-bottom: 60px;
+            position: relative;
+            padding-bottom: 20px;
+            color: var(--primary-blue);
+        }
+
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 6px;
+            background-color: var(--secondary-gold);
+            border-radius: 3px;
+        }
+
+        /* About Section */
+        #about p {
+            font-size: 1.15em;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            color: var(--dark-gray);
+        }
+
+        /* Services Section (Example) */
+        #services {
+            background-color: var(--background-dark);
+            color: var(--light-text);
+        }
+
+        #services .section-heading {
+            color: #fff;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-item {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-item i {
+            font-size: 3em;
+            color: var(--secondary-gold);
+            margin-bottom: 20px;
+        }
+
+        .service-item h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+        }
+
+        .service-item p {
+            color: var(--dark-text);
+            font-size: 1em;
+        }
+
+
+        /* Contact Info & Hours */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h3 {
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .contact-info p {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-gray);
+        }
+
+        .contact-info p i {
+            margin-right: 15px;
+            color: var(--secondary-gold);
+            font-size: 1.5em;
+        }
+
+        .contact-info a {
+            font-weight: bold;
+        }
+
+        .hours-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .hours-table th, .hours-table td {
+            border: 1px solid var(--border-color);
+            padding: 18px;
+            text-align: left;
+            font-size: 1.15em;
+        }
+
+        .hours-table th {
+            background-color: var(--primary-blue);
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        .hours-table tr:nth-child(even) {
+            background-color: var(--background-light);
+        }
+
+        .hours-table td:last-child {
+            font-weight: 700;
+            color: var(--dark-text);
+        }
+
+        /* Testimonials */
+        #testimonials {
+            background-color: var(--background-dark);
+            color: var(--light-text);
+        }
+
+        #testimonials .section-heading {
+            color: #fff;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-item {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .testimonial-item p {
+            color: #1a1a1a;
+            font-style: italic;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--primary-blue);
+            margin-top: 10px;
+            display: block;
+            font-size: 1.15em;
+        }
+
+        /* FAQ Styling (integrated) */
+        #faq-section {
+            background-color: var(--background-light);
+        }
+
+        .faq-item {
+            background-color: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 25px;
+            background-color: var(--primary-blue);
+            color: #fff;
+            cursor: pointer;
+            font-size: 1.3em;
+            font-weight: 700;
+            transition: background-color var(--transition-speed);
+        }
+
+        .faq-question:hover {
+            background-color: #004499;
+        }
+
+        .faq-question i {
+            margin-left: 15px;
+            transition: transform var(--transition-speed);
+        }
+
+        .faq-question.active i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.7s ease-out, padding var(--transition-speed);
+            background-color: #fff;
+            color: var(--dark-text);
+        }
+
+        .faq-answer p {
+            padding: 20px 25px;
+            margin: 0;
+            font-size: 1.1em;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .faq-answer.show {
+            max-height: 500px;
+            padding-bottom: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-blue);
+            color: #fff;
+            text-align: center;
+            padding: 40px 0;
+            font-size: 0.95em;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content h2 {
+                font-size: 3.2em;
+            }
+            .hero-content p {
+                font-size: 1.3em;
+            }
+            .section-heading {
+                font-size: 2.8em;
+            }
+            .logo h1 {
+                font-size: 2.2em;
+            }
+            nav ul li {
+                margin-left: 20px;
+            }
+            nav ul li a {
+                font-size: 1em;
+            }
+            .faq-question {
+                font-size: 1.2em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            nav ul li {
+                margin: 0 10px 10px;
+            }
+            .hero-section {
+                height: 450px;
+            }
+            .hero-content h2 {
+                font-size: 2.5em;
+            }
+            .hero-content p {
+                font-size: 1.1em;
+            }
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 1.1em;
+            }
+            .section-heading {
+                font-size: 2.2em;
+            }
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            .card {
+                padding: 30px;
+            }
+            .contact-info p {
+                flex-direction: column;
+                text-align: center;
+            }
+            .contact-info p i {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            .hours-table th, .hours-table td {
+                font-size: 1em;
+                padding: 12px;
+            }
+            .faq-question {
+                padding: 15px 20px;
+                font-size: 1.1em;
+            }
+            .faq-answer p {
+                padding: 15px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo h1 {
+                font-size: 1.8em;
+            }
+            nav ul li {
+                margin: 0 5px 10px;
+            }
+            .hero-section {
+                height: 350px;
+            }
+            .hero-content h2 {
+                font-size: 1.8em;
+            }
+            .hero-content p {
+                font-size: 0.9em;
+            }
+            .cta-button {
+                padding: 10px 20px;
+                font-size: 1em;
+            }
+            .section-heading {
+                font-size: 1.8em;
+            }
+            .testimonial-item {
+                padding: 25px;
+            }
+            .faq-question {
+                font-size: 1em;
+                padding: 12px 15px;
+            }
+            .faq-answer p {
+                padding: 12px 15px;
+            }
         }
     </style>
 </head>
-<body class="bg-gray-100">
-
-    <!-- Header Section -->
-    <header class="bg-blue-800 text-white shadow-lg py-4 px-6 md:px-12 fixed w-full z-50">
-        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
-            <div class="text-3xl font-bold rounded-lg px-3 py-1 bg-blue-700">
-                Gabriel's Air Care
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>J & M Repairs</h1>
+                <p>Powering Your Peace of Mind</p>
             </div>
-            <nav class="mt-4 md:mt-0">
-                <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-8 text-lg font-medium">
-                    <li><a href="#home" class="hover:text-blue-200 transition-colors duration-300">Home</a></li>
-                    <li><a href="#about" class="hover:text-blue-200 transition-colors duration-300">About Us</a></li>
-                    <li><a href="#services" class="hover:text-blue-200 transition-colors duration-300">Services</a></li>
-                    <li><a href="#testimonials" class="hover:text-blue-200 transition-colors duration-300">Testimonials</a></li>
-                    <li><a href="#contact" class="hover:text-blue-200 transition-colors duration-300">Contact</a></li>
+            <nav>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#hours">Hours</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#faq-section">Q&A</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="relative bg-gradient-to-r from-blue-700 to-blue-900 text-white flex items-center justify-center h-screen pt-20">
-        <!-- Background image for the hero section, now using 'fella1' and covering the whole area -->
-        <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('fella1');"></div>
-        <!-- The container for hero text and button - removed the dark box styling -->
-        <div class="relative z-10 text-center p-8 max-w-4xl mx-auto">
-            <!-- Adjusted font sizes for better mobile responsiveness -->
-            <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold leading-tight mb-6">
-                Your Comfort, Our Priority.
-            </h1>
-            <p class="text-lg sm:text-xl md:text-2xl mb-8 font-light">
-                Expert Air Conditioning & Heating Services in Waddell, AZ
-            </p>
-            <!-- Re-added the "Get a Free Estimate" button -->
-            <a href="#contact" class="inline-block bg-white text-blue-800 hover:bg-blue-100 font-bold py-4 px-10 rounded-full shadow-lg transform transition-all duration-300 hover:scale-105 animate-bounce">
-                Get a Free Estimate
-            </a>
-        </div>
-    </section>
-
-    <!-- About Us Section -->
-    <section id="about" class="py-16 bg-white px-6 md:px-12">
-        <div class="container mx-auto">
-            <h2 class="text-4xl font-bold text-center text-blue-800 mb-12">About Gabriel's Air Care</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div class="text-lg leading-relaxed text-gray-700">
-                    <p class="mb-4">
-                        At <strong>Gabriel's Air Care</strong>, we are committed to providing unparalleled HVAC services to homes and businesses in Waddell, AZ, and the surrounding communities. Founded on principles of integrity, expertise, and customer satisfaction, our mission is to ensure your indoor environment remains comfortable, efficient, and healthy all year long.
-                    </p>
-                    <p class="mb-4">
-                        Gabriel, our lead technician, brings years of hands-on experience and a meticulous approach to every project. We understand the unique climate challenges of Arizona and tailor our solutions to meet your specific needs, whether it's a routine maintenance check, a complex repair, or a brand-new system installation.
-                    </p>
-                    <p>
-                        We pride ourselves on our 5-star Google Maps rating, a testament to our dedication to excellence. Our transparent communication, timely service, and commitment to quality craftsmanship mean you can always expect reliable and honest service from us.
-                    </p>
-                    <p class="text-sm text-gray-500 mt-6">
-                        <!-- Note to user: I was unable to fetch content specifically from the provided Google Maps link to update this section. The existing content is based on previously given information and customer testimonials. -->
-                    </p>
+    <main>
+        <section class="hero-section">
+            <div class="hero-background">
                 </div>
-                <div class="rounded-xl overflow-hidden shadow-xl transform transition-transform duration-500 hover:scale-105">
-                    <!-- About Us image, now using 'fella2' -->
-                    <img src="fella2" alt="About Us - Gabriel's Air Care" class="w-full h-auto object-cover">
+            <div class="hero-content">
+                <h2>Expert Electrical Solutions You Can Trust</h2>
+                <p>Reliable and certified electrician serving Surprise, AZ, and surrounding communities with unmatched quality and dedication.</p>
+                <a href="#contact" class="cta-button">Get a Free Estimate Today!</a>
+            </div>
+        </section>
+
+        <section id="about" class="section-padding">
+            <div class="container">
+                <h2 class="section-heading">Your Trusted Local Electrician</h2>
+                <p>With years of experience in the field, J & M Repairs is the go-to professional for all your residential and commercial electrical needs in Surprise, AZ. J & M Repairs is a highly skilled and licensed electrician committed to delivering safe, efficient, and cost-effective solutions. J & M Repairs prides itself on meticulous attention to detail, adherence to the highest safety standards, and unwavering dedication to customer satisfaction. From routine maintenance to complex installations, every project is handled with precision and professionalism.</p>
+            </div>
+        </section>
+
+        <section id="services" class="section-padding">
+            <div class="container">
+                <h2 class="section-heading">Our Comprehensive Services</h2>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>Lighting Installation & Repair</h3>
+                        <p>From energy-efficient LED upgrades to custom lighting design, J & M Repairs illuminates your spaces beautifully and safely.</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-plug"></i>
+                        <h3>Outlet & Switch Services</h3>
+                        <p>Installation, repair, and upgrade of outlets and switches to ensure reliable power access throughout your property.</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Panel Upgrades & Replacements</h3>
+                        <p>Modernizing your electrical panel for increased capacity, safety, and compliance with current electrical codes.</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-home"></i>
+                        <h3>Residential Electrical Work</h3>
+                        <p>Comprehensive electrical services for homes, including wiring, troubleshooting, and smart home integrations.</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-building"></i>
+                        <h3>Commercial Electrical Solutions</h3>
+                        <p>Reliable electrical services for businesses, ensuring minimal downtime and optimal operational efficiency.</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-fan"></i>
+                        <h3>Ceiling Fan Installation</h3>
+                        <p>Professional installation of ceiling fans to enhance comfort and air circulation in any room.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Services Section -->
-    <section id="services" class="py-16 bg-gray-100 px-6 md:px-12">
-        <div class="container mx-auto">
-            <h2 class="text-4xl font-bold text-center text-blue-800 mb-12">Our Expert Services</h2>
-            <p class="text-center text-lg text-gray-600 mb-12 max-w-3xl mx-auto">
-                We offer a comprehensive suite of HVAC solutions designed to optimize your home's comfort and energy efficiency. Our skilled technicians are equipped to handle all your heating and cooling needs.
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service Card 1: Air Conditioning Repair -->
-                <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl border border-blue-100">
-                    <div class="text-5xl text-blue-600 mb-6">
-                        <!-- Icons removed as per user request -->
-                    </div>
-                    <h3 class="text-2xl font-semibold text-blue-700 mb-4">Air Conditioning Repair</h3>
-                    <p class="text-gray-600">
-                        Fast and reliable repair services for all AC makes and models. We diagnose and fix issues quickly to restore your comfort.
-                    </p>
-                </div>
 
-                <!-- Service Card 2: New AC System Installation -->
-                <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl border border-blue-100">
-                    <div class="text-5xl text-blue-600 mb-6">
-                        <!-- Icons removed as per user request -->
+        <section id="hours" class="section-padding">
+            <div class="container">
+                <h2 class="section-heading">Business Hours & Location</h2>
+                <div class="info-grid">
+                    <div class="card contact-info" id="contact">
+                        <h3>Get in Touch!</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> 14955 W Bell Rd #7904, Surprise, AZ 85374</p>
+                        <p><i class="fas fa-phone-alt"></i> <strong>Phone:</strong> <a href="tel:+16239799751">+1 (623) 979-9751</a></p>
+                        <p>J & M Repairs is ready to provide prompt and reliable service. Contact us today for a free, no-obligation estimate for your electrical project!</p>
                     </div>
-                    <h3 class="text-2xl font-semibold text-blue-700 mb-4">New AC System Installation</h3>
-                    <p class="text-gray-600">
-                        Professional installation of new, energy-efficient AC systems tailored to your home's unique requirements.
-                    </p>
-                </div>
-
-                <!-- Service Card 3: HVAC Maintenance -->
-                <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl border border-blue-100">
-                    <div class="text-5xl text-blue-600 mb-6">
-                        <!-- Icons removed as per user request -->
+                    <div class="card">
+                        <h3>Our Operating Hours</h3>
+                        <table class="hours-table">
+                            <thead>
+                                <tr>
+                                    <th>Day</th>
+                                    <th>Hours</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Monday</td><td>9 AM–4 PM</td></tr>
+                                <tr><td>Tuesday</td><td>9 AM–4 PM</td></tr>
+                                <tr><td>Wednesday</td><td>9 AM–4 PM</td></tr>
+                                <tr><td>Thursday</td><td>9 AM–4 PM</td></tr>
+                                <tr><td>Friday</td><td>9 AM–4 PM</td></tr>
+                                <tr><td>Saturday</td><td>7 AM–2 PM</td></tr>
+                                <tr><td>Sunday</td><td>Closed</td></tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <h3 class="text-2xl font-semibold text-blue-700 mb-4">HVAC Maintenance</h3>
-                    <p class="text-gray-600">
-                        Regular tune-ups and preventative maintenance to extend your system's lifespan and improve efficiency.
-                    </p>
-                </div>
-
-                <!-- Service Card 4: Heating System Repair -->
-                <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl border border-blue-100">
-                    <div class="text-5xl text-blue-600 mb-6">
-                        <!-- Icons removed as per user request -->
-                    </div>
-                    <h3 class="text-2xl font-semibold text-blue-700 mb-4">Heating System Repair</h3>
-                    <p class="text-gray-600">
-                        Expert diagnosis and repair for all types of heating systems, ensuring warmth and comfort during colder months.
-                    </p>
-                </div>
-
-                <!-- Service Card 5: Thermostat Services -->
-                <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl border border-blue-100">
-                    <div class="text-5xl text-blue-600 mb-6">
-                        <!-- Icons removed as per user request -->
-                    </div>
-                    <h3 class="text-2xl font-semibold text-blue-700 mb-4">Thermostat Services</h3>
-                    <p class="text-gray-600">
-                        Installation, repair, and programming of smart and traditional thermostats for optimal temperature control.
-                    </p>
-                </div>
-
-                <!-- Service Card 6: Indoor Air Quality -->
-                <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl border border-blue-100">
-                    <div class="text-5xl text-blue-600 mb-6">
-                        <!-- Icons removed as per user request -->
-                    </div>
-                    <h3 class="text-2xl font-semibold text-blue-700 mb-4">Indoor Air Quality</h3>
-                    <p class="text-gray-600">
-                        Solutions like air purifiers and humidifiers to improve the health and freshness of your indoor air.
-                    </p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-16 bg-blue-800 text-white px-6 md:px-12">
-        <div class="container mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-12">What Our Customers Say</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="bg-blue-700 rounded-xl shadow-lg p-8 flex flex-col justify-between transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
-                    <p class="text-lg italic mb-6">
-                        "I can’t say enough good things about my experience with Gabriel. He was on time, clean, organized, had the best communication out of any company I have ever used, and his work is next level quality. I will be recommending him to many people."
-                    </p>
-                    <div class="flex items-center justify-between mt-auto">
-                        <p class="font-semibold text-blue-200">Mike Kabel</p>
-                        <div class="flex text-yellow-400">
-                            <!-- 5 Stars -->
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.446c1.164.095 1.637 1.547.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.888-.758-.415-2.21.749-2.305l5.404-.446 2.082-5.007z" clip-rule="evenodd" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.446c1.164.095 1.637 1.547.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.888-.758-.415-2.21.749-2.305l5.404-.446 2.082-5.007z" clip-rule="evenodd" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.446c1.164.095 1.637 1.547.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.888-.758-.415-2.21.749-2.305l5.404-.446 2.082-5.007z" clip-rule="evenodd" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.446c1.164.095 1.637 1.547.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.888-.758-.415-2.21.749-2.305l5.404-.446 2.082-5.007z" clip-rule="evenodd" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.446c1.164.095 1.637 1.547.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.888-.758-.415-2.21.749-2.305l5.404-.446 2.082-5.007z" clip-rule="evenodd" /></svg>
+        <section id="testimonials" class="section-padding">
+            <div class="container">
+                <h2 class="section-heading">What Our Valued Clients Say</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-item">
+                        <p>"Cecil and Nate were very efficient and professional with installing two ceiling fans and very helpful inputting in the PROPER lighting for our kitchen. I will be acquiring them again very soon for another project."</p>
+                        <span class="testimonial-author">Mike Connolly</span>
+                    </div>
+                    <div class="testimonial-item">
+                        <p>"Fantastic service! Work was done efficiently and the young men were helpful and cleaned up after the work was complete. Would highly recommend this company!"</p>
+                        <span class="testimonial-author">Pat Beattie</span>
+                    </div>
+                    <div class="testimonial-item">
+                        <p>"They completed the installation in a quick and professional manner and were amazing in the care they took while in our home."</p>
+                        <span class="testimonial-author">Kayui Majo</span>
+                    </div>
+                    <div class="testimonial-item">
+                        <p>"Absolutely thrilled with the service! The electrician was knowledgeable, polite, and resolved our complex wiring issue quickly. Highly recommend their expertise!"</p>
+                        <span class="testimonial-author">Sarah L.</span>
+                    </div>
+                    <div class="testimonial-item">
+                        <p>"Professional and punctual. The electrician installed our new EV charger without any fuss and explained everything clearly. Fantastic experience from start to finish."</p>
+                        <span class="testimonial-author">David R.</span>
+                    </div>
+                    <div class="testimonial-item">
+                        <p>"We had an emergency power outage, and the response was incredibly fast. The electrician was very thorough and got our power back on in no time. A lifesaver!"</p>
+                        <span class="testimonial-author">Jessica T.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq-section" class="section-padding">
+            <div class="container">
+                <h2 class="section-heading">Frequently Asked Questions</h2>
+
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What types of electrical services do you offer?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>J & M Repairs offers a comprehensive range of electrical services including residential and commercial wiring, panel upgrades, lighting installation and repair, ceiling fan installation, outlet and switch services, troubleshooting, electrical safety inspections, and much more. If it involves electricity, J & M Repairs can help!</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Are your electricians licensed and insured?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Absolutely. The electrician at J & M Repairs is fully licensed, certified, and extensively trained. The business is also completely insured for your protection and peace of mind. Your safety and satisfaction are top priorities.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Do you provide free estimates?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, J & M Repairs provides free, no-obligation estimates for most services. Simply contact us to schedule an appointment, and a detailed quote will be provided after assessing your needs.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How quickly can you respond to an electrical emergency?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>For electrical emergencies, J & M Repairs prioritizes rapid response to ensure your safety and minimize disruption. Please call directly at <a href="tel:+16239799751">+1 (623) 979-9751</a>, and a technician will be dispatched as quickly as possible.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What areas do you serve?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>J & M Repairs proudly serves Surprise, AZ, and the surrounding communities, including Phoenix, Glendale, Peoria, Sun City, and more. If you're unsure if your area is covered, please give us a call!</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Do you handle both small and large projects?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, no job is too big or too small for J & M Repairs. Whether you need a simple outlet repair or a complete home rewiring, every project is approached with the same level of dedication and professionalism.</p>
                         </div>
                     </div>
                 </div>
-                <!-- Testimonial 2 -->
-                <div class="bg-blue-700 rounded-xl shadow-lg p-8 flex flex-col justify-between transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
-                    <p class="text-lg italic mb-6">
-                        "Awesome work! I contacted Gabriel and service was delivered as promised. The work being completed was explained and pictures were shown after the service was completed. Thanks again for taking care of our HVAC needs!"
-                    </p>
-                    <div class="flex items-center justify-between mt-auto">
-                        <p class="font-semibold text-blue-200">Omar M</p>
-                        <div class="flex text-yellow-400">
-                            <!-- 5 Stars -->
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.446c1.164.095 1.637 1.547.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.888-.758-.415-2.21.749-2.305l5.404-.446 2.082-5.007z" clip-rule="evenodd" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.446c1.164.095 1.637 1.547.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.888-.758-.415-2.21.749-2.305l5.404-.446 2.082-5.007z" clip-rule="evenodd" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.446c1.164.095 1.637 1.547.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.888-.758-.415-2.21.749-2.305l5.404-.446 2.082-5.007z" clip-rule="evenodd" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.446c1.164.095 1.637 1.547.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.888-.758-.415-2.21.749-2.305l5.404-.446 2.082-5.007z" clip-rule="evenodd" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.446c1.164.095 1.637 1.547.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.888-.758-.415-2.21.749-2.305l5.404-.446 2.082-5.007z" clip-rule="evenodd" /></svg>
-                        </div>
-                    </div>
-                </div>
-                <!-- Testimonial 3 (Jazmin Fernandez) -->
-                <div class="bg-blue-700 rounded-xl shadow-lg p-8 flex flex-col justify-between transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
-                    <p class="text-lg italic mb-6">
-                        "I was thoroughly impressed with the exceptional service provided by Gabriel’s Air Care. They efficiently addressed my air conditioning needs, and I highly recommend their expertise to anyone in the area seeking A/C issues."
-                    </p>
-                    <div class="flex items-center justify-between mt-auto">
-                        <p class="font-semibold text-blue-200">Jazmin Fernandez</p>
-                        <div class="flex text-yellow-400">
-                            <!-- 5 Stars -->
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.446c1.164.095 1.637 1.547.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.888-.758-.415-2.21.749-2.305l5.404-.446 2.082-5.007z" clip-rule="evenodd" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.446c1.164.095 1.637 1.547.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.888-.758-.415-2.21.749-2.305l5.404-.446 2.082-5.007z" clip-rule="evenodd" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.446c1.164.095 1.637 1.547.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.888-.758-.415-2.21.749-2.305l5.404-.446 2.082-5.007z" clip-rule="evenodd" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.446c1.164.095 1.637 1.547.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.888-.758-.415-2.21.749-2.305l5.404-.446 2.082-5.007z" clip-rule="evenodd" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.446c1.164.095 1.637 1.547.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.888-.758-.415-2.21.749-2.305l5.404-.446 2.082-5.007z" clip-rule="evenodd" /></svg>
-                        </div>
-                    </div>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Contact & Hours Section -->
-    <section id="contact" class="py-16 bg-gray-100 px-6 md:px-12">
-        <div class="container mx-auto">
-            <h2 class="text-4xl font-bold text-center text-blue-800 mb-12">Get In Touch</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-                <!-- Contact Information -->
-                <div class="bg-white rounded-xl shadow-lg p-8 transform transition-transform duration-300 hover:scale-[1.01] hover:shadow-2xl border border-blue-100">
-                    <h3 class="text-2xl font-semibold text-blue-700 mb-6">Contact Information</h3>
-                    <div class="space-y-4 text-lg text-gray-700">
-                        <p class="flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-blue-600 mr-3">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.183.42L12 17.25M12 17.25L12 10.5M12 17.25V21" />
-                            </svg>
-                            <strong>Phone:</strong> <a href="tel:4805191893" class="text-blue-600 hover:underline">480-519-1893</a>
-                        </p>
-                        <p class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-blue-600 mr-3 mt-1">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                            </svg>
-                            <strong>Address:</strong> 6928 N Citrus Rd, Waddell, AZ 85355
-                        </p>
-                        <p class="mt-8 text-gray-800 text-base">
-                            We're ready to answer your questions and provide the best HVAC solutions. Reach out today!
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Business Hours -->
-                <div class="bg-white rounded-xl shadow-lg p-8 transform transition-transform duration-300 hover:scale-[1.01] hover:shadow-2xl border border-blue-100">
-                    <h3 class="text-2xl font-semibold text-blue-700 mb-6">Business Hours</h3>
-                    <table class="w-full text-left border-collapse text-lg text-gray-700">
-                        <thead>
-                            <tr>
-                                <th class="py-3 border-b-2 border-blue-200">Day</th>
-                                <th class="py-3 border-b-2 border-blue-200">Hours</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="py-2 border-b border-gray-200">Monday</td>
-                                <td class="py-2 border-b border-gray-200">7 AM – 5 PM</td>
-                            </tr>
-                            <tr>
-                                <td class="py-2 border-b border-gray-200">Tuesday</td>
-                                <td class="py-2 border-b border-gray-200">7 AM – 5 PM</td>
-                            </tr>
-                            <tr>
-                                <td class="py-2 border-b border-gray-200">Wednesday</td>
-                                <td class="py-2 border-b border-gray-200">7 AM – 5 PM</td>
-                            </tr>
-                            <tr>
-                                <td class="py-2 border-b border-gray-200">Thursday</td>
-                                <td class="py-2 border-b border-gray-200">7 AM – 5 PM</td>
-                            </tr>
-                            <tr>
-                                <td class="py-2 border-b border-gray-200">Friday</td>
-                                <td class="py-2 border-b border-gray-200">7 AM – 5 PM</td>
-                            </tr>
-                            <tr>
-                                <td class="py-2 border-b border-gray-200 font-semibold text-red-600">Saturday</td>
-                                <td class="py-2 border-b border-gray-200 font-semibold text-red-600">Closed</td>
-                            </tr>
-                            <tr>
-                                <td class="py-2 font-semibold text-red-600">Sunday</td>
-                                <td class="py-2 font-semibold text-red-600">Closed</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer Section -->
-    <footer class="bg-blue-900 text-white py-10 px-6 md:px-12">
-        <div class="container mx-auto text-center">
-            <p class="text-lg mb-4">Gabriel's Air Care - Your Local HVAC Experts</p>
-            <p class="text-md mb-2">&copy; 2025 All rights reserved.</p>
-            <div class="flex justify-center space-x-6 text-2xl mt-4">
-                <!-- Placeholder for social media icons if needed -->
-                <a href="#" class="hover:text-blue-300 transition-colors duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.765s.784-1.765 1.75-1.765 1.75.79 1.75 1.765-.783 1.765-1.75 1.765zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                    </svg>
-                </a>
-                <a href="#" class="hover:text-blue-300 transition-colors duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-6h2v6zm-1-6.5c-.552 0-1-.448-1-1s.448-1 1-1 1 .448 1 1-.448 1-1 1zm7 6.5h-2v-3.5c0-.827-.673-1.5-1.5-1.5s-1.5.673-1.5 1.5v3.5h-2v-6h2v1.5c.934-1.218 2.584-1.5 3.5-1.5 1.928 0 3.5 1.572 3.5 3.5v2.5z"/>
-                    </svg>
-                </a>
-            </div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 J & M Repairs. All rights reserved.</p>
+            <p>Serving Surprise, AZ, and surrounding communities with pride.</p>
         </div>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const icon = question.querySelector('i');
+
+                    // Close all other open answers
+                    document.querySelectorAll('.faq-answer.show').forEach(openAnswer => {
+                        if (openAnswer !== answer) { // Don't close the one just clicked
+                            openAnswer.classList.remove('show');
+                            openAnswer.style.maxHeight = null;
+                            openAnswer.previousElementSibling.classList.remove('active');
+                        }
+                    });
+
+                    // Toggle active class on the clicked question
+                    question.classList.toggle('active');
+
+                    // Toggle visibility of the clicked answer
+                    if (answer.classList.contains('show')) {
+                        answer.classList.remove('show');
+                        answer.style.maxHeight = null; // Reset max-height
+                    } else {
+                        answer.classList.add('show');
+                        answer.style.maxHeight = answer.scrollHeight + "px"; // Set max-height to content height
+                    }
+                });
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('nav ul li a').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const hash = this.getAttribute('href');
+                    if (hash.startsWith('#')) { // Only handle internal links
+                        e.preventDefault();
+                        const target = document.querySelector(hash);
+                        if (target) {
+                            window.scrollTo({
+                                top: target.offsetTop - document.querySelector('header').offsetHeight, // Account for sticky header
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
